@@ -1,7 +1,7 @@
 # KiwiRailWebUIAutomation
 
 i) This is a web ui automation framework coded using Specflow BDD and C#.netcore.
-ii) It is based on page object model pattern. Where each page represents a page on the https://www.kiwirail.co.nz/
+ii) It is based on page object model pattern. Where each page represents a page on the [https://www.kiwirail.co.nz/](https://www.tal.com.au/)
 
 Folder Structure and Pattern details:
 1) Feature Files: This folder contain the feature file that has the test scenarios to be tested in Gherkin language format.
