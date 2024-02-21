@@ -19,4 +19,4 @@ jobs:
         dotnet-version: '6.0.x'  # Specify the desired .NET SDK version
         
     - name: Build project
-      run: TALTECHCSHARPPROJECT/TalTechWebUIAutomation.sln
+      run: TalTechWebUIAutomation.sln
