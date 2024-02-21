@@ -5,6 +5,8 @@ using BoDi;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using TechTalk.SpecFlow;
+using System.Drawing.Imaging;
+
 
 namespace TalTechWebUIAutomation.Support
 {
