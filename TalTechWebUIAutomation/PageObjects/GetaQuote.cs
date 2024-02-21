@@ -12,14 +12,7 @@ namespace TalTechWebUIAutomation.PageObjects
     {
         public GetaQuote(IWebDriver driver) : base(driver)
         {
-            // Assuming you have initialized the WebDriver instance elsewhere in your test code
-            IWebDriver driver = new ChromeDriver();
-
-            // Create an instance of the GetaQuote class and pass the WebDriver instance
-            GetaQuote getaQuotePage = new GetaQuote(driver);
-
-            // Now you can use the methods of the GetaQuote class to interact with the page
-
+            
         }
 
         private IWebElement NavigationLink(string navlink) =>
