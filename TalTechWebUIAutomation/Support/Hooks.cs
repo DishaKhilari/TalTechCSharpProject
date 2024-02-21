@@ -52,8 +52,11 @@ namespace TalTechWebUIAutomation.Support
         {
             try
             {
-                Screenshot ss = ((ITakesScreenshot) _driver).GetScreenshot();
-                ss.SaveAsFile(Path.Combine(Environment.CurrentDirectory, $"{scenarioContext.ScenarioInfo.Title}.png"), ImageFormat.Png);
+                Screenshot ss = ((ITakesScreenshot)_driver).GetScreenshot();
+                byte[] screenshotAsByteArray = ss.AsByteArray;
+                string screenshotFileName = $"{scenarioContext.ScenarioInfo.Title}.png";
+                string screenshotFilePath = Path.Combine(Environment.CurrentDirectory, screenshotFileName);
+                File.WriteAllBytes(screenshotFilePath, screenshotAsByteArray);
             }
             catch (Exception e)
             {
@@ -61,6 +64,7 @@ namespace TalTechWebUIAutomation.Support
                 throw;
             }
         }
+
 
         /// <summary>
         /// Create and initialize driver
