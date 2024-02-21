@@ -9,6 +9,14 @@ namespace TalTechWebUIAutomation.PageObjects
     {
         public MainPage(IWebDriver driver) : base(driver)
         {
+                // Assuming you have initialized the WebDriver instance elsewhere in your test code
+            IWebDriver driver = new ChromeDriver();
+
+            // Create an instance of the MainPage class and pass the WebDriver instance
+            MainPage mainPage = new MainPage(driver);
+
+            // Now you can use the methods of the MainPage class to interact with the web pages
+
         }
 
         #region Locators

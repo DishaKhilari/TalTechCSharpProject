@@ -18,6 +18,14 @@ namespace TalTechWebUIAutomation.StepDefinitions
         {
             _mainPage = new MainPage(driver);
             _getQuotePage = new GetaQuote(driver);
+            // Assuming you have initialized the WebDriver instance elsewhere in your test code
+            IWebDriver driver = new ChromeDriver();
+
+            // Create an instance of the TalTechStepDefinitions class and pass the WebDriver instance
+            TalTechStepDefinitions stepDefinitions = new TalTechStepDefinitions(driver);
+
+            // Now you can use the step definitions methods to write your SpecFlow scenarios
+
         }
         [Given(@"I navigate to the TAL Website")]
         public void GivenINavigateToTheTALlWebsite()
