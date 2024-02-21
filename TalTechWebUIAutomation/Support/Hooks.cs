@@ -53,8 +53,7 @@ namespace TalTechWebUIAutomation.Support
             try
             {
                 Screenshot ss = ((ITakesScreenshot) _driver).GetScreenshot();
-                ss.SaveAsFile(Path.Combine(Environment.CurrentDirectory, $"{scenarioContext.ScenarioInfo.Title}.png"),
-                    ScreenshotImageFormat.Png);
+                ss.SaveAsFile(Path.Combine(Environment.CurrentDirectory, $"{scenarioContext.ScenarioInfo.Title}.png"), ImageFormat.Png);
             }
             catch (Exception e)
             {
