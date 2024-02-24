@@ -1,4 +1,4 @@
-# TALTechWebUIAutomation
+# TechWebUIAutomation
 
 i) This is a web ui automation framework coded using Specflow BDD and C#.netcore.
 ii) It is based on page object model pattern. Where each page represents a page on the (https://www.tal.com.au/)
