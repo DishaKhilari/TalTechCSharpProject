@@ -78,7 +78,8 @@ namespace TalTechWebUIAutomation.Support
             var browser = TestConfiguration.GetSectionAndValue("BrowserOptions", "Browser");
             if (_driver == null)
             {
-                switch (browser)
+                switch (browser)//test
+
                 {
                     case "Chrome":
                         ChromeOptions chromeOptions = new ChromeOptions();
