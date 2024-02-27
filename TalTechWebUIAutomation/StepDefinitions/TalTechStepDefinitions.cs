@@ -38,12 +38,6 @@ namespace TalTechWebUIAutomation.StepDefinitions
             _mainPage.ClickNavigationMenuItem(item);
         }
 
-        [Then(@"I verify that I am on the page : (.*)")]
-        public void ThenIVerifyThatIAmOnThePage(string pageHeader)
-        {
-            Assert.AreEqual(pageHeader, _mainPage.GetPageHeader());
-        }
-
         [Then(@"I verify that I am on TAL Website Main Page")]
         public void ThenIVerifyThatIAmOnTALWebsiteMainPage()
         {
@@ -96,15 +90,6 @@ namespace TalTechWebUIAutomation.StepDefinitions
         public void ThenUserClickOnSubmitButton(string buttonName)
         {
             _mainPage.SubmitButton(buttonName);
-        }
-
-        [Then(@"I verify the main header navigation links are:")]
-        public void ThenIVerifyTheMainHeaderNavigationLinksAre(Table links)
-        {
-            foreach (var link in links.Rows)
-            {
-                Assert.IsTrue(_mainPage.IsLinkPresentOnTheHeader(link[0]));
-            }
         }
 
         [Then(@"Scroll down to the bottom of the page and click the ""([^""]*)""")]
