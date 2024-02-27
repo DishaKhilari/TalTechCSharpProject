@@ -6,6 +6,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using TechTalk.SpecFlow;
 using System.Drawing.Imaging;
+using OpenQA.Selenium.Interactions;
 
 
 namespace TalTechWebUIAutomation.Support
@@ -82,6 +83,8 @@ namespace TalTechWebUIAutomation.Support
                     case "Chrome":
                         ChromeOptions chromeOptions = new ChromeOptions();
                         chromeOptions.AddArgument("--window-size=1920,1080");
+                        chromeOptions.AddArgument("--user-agent={}");
+
 
                         // Get value for headless option from appsettings.json
 
