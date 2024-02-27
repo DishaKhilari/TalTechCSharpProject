@@ -23,6 +23,12 @@ jobs:
       
     - name: Build project
       run: dotnet build --configuration Release
+
+    - name: Replace Environmental Variables
+      run: |
+        dotnet run --project TalTechWebUIAutomation/TalTechWebUIAutomation.csproj
+      env:
+        JSON_FILE_PATH: "TalTechWebUIAutomation/appsettings.json"
       
     - name: Run tests
       run: dotnet test --configuration Release --no-build
