@@ -40,13 +40,13 @@ namespace TalTechWebUIAutomation.PageObjects
 
             if (feildType == "TextInput")
             {
-                IWebElement question_locator(string question) => Driver.FindElement(By.XPath("//*[text()='"+question+"']/following::input"));
+                IWebElement question_locator(string question) => Driver.FindElement(By.XPath("//*[text()='*"+question+"']/following::input"));
                 question_locator(question).SendKeys(answer);
 
             }
             else if (feildType == "TextArea")
             {
-                IWebElement question_locator(string question) => Driver.FindElement(By.XPath("//*[text()='"+question+"']/following::textarea"));
+                IWebElement question_locator(string question) => Driver.FindElement(By.XPath("//*[text()='*"+question+"']/following::textarea"));
                 question_locator(question).SendKeys(answer);
 
             }
@@ -54,19 +54,19 @@ namespace TalTechWebUIAutomation.PageObjects
             {
                 string l = answer;
                 int number = Convert.ToInt32(l);
-                IWebElement question_locator(string question) => Driver.FindElement(By.XPath("//*[text()='"+question+"']/following::input"));
+                IWebElement question_locator(string question) => Driver.FindElement(By.XPath("//*[text()='*"+question+"']/following::input"));
                 question_locator(question).SendKeys(Convert.ToString("0'"+number+"'"));
             }
             else if (feildType == "CheckBox")
             {
                 
-                IWebElement answer_locator(string question, string answer) => Driver.FindElement(By.XPath("//*[text()='"+question+"']/following::div[text()='"+answer+"']"));
+                IWebElement answer_locator(string question, string answer) => Driver.FindElement(By.XPath("//*[text()='"+answer+"']"));
                 answer_locator(question, answer).Click();
             }
             else if (feildType == "Dropdownfill")
             {
-                IWebElement question_locator(string question) => Driver.FindElement(By.XPath("//*[text()='"+question+"']/following::input"));
-                IWebElement answer_locator(string question, string answer) => Driver.FindElement(By.XPath("//*[text()='"+question+"']/following::input[@value='"+answer+"']"));
+                IWebElement question_locator(string question) => Driver.FindElement(By.XPath("//*[text()='*"+question+"']/following::input"));
+                IWebElement answer_locator(string question, string answer) => Driver.FindElement(By.XPath("//*[text()='*"+question+"']/following::input[@value='"+answer+"']"));
 
                 question_locator(question).Click();
                 question_locator(question).SendKeys(answer);
@@ -74,8 +74,8 @@ namespace TalTechWebUIAutomation.PageObjects
             }
             else if (feildType == "DropDown")
             {
-                IWebElement question_locator(string question) => Driver.FindElement(By.XPath("//*[text()='"+question+"']/following::select"));
-                IWebElement answer_locator(string question, string answer) => Driver.FindElement(By.XPath("//*[text()='"+question+"']/following::option[@value='"+answer+"']"));
+                IWebElement question_locator(string question) => Driver.FindElement(By.XPath("//*[text()='*"+question+"']/following::select"));
+                IWebElement answer_locator(string question, string answer) => Driver.FindElement(By.XPath("//*[text()='*"+question+"']/following::option[@value='"+answer+"']"));
 
                 question_locator(question).Click();
                 answer_locator(question, answer).Click();

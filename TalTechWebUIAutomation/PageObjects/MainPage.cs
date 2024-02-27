@@ -71,7 +71,13 @@ namespace TalTechWebUIAutomation.PageObjects
 
         public void ClickNavigationMenuItem(string link)
         {
-            ActiveNavigationMenuItems(link).Click();
+            try
+            {
+                ActiveNavigationMenuItems(link).Click();
+            }
+            catch {
+                Driver.FindElement(By.XPath("(//a[contains(text(), 'GET A QUOTE')])[2]")).Click();
+            }
         }
 
         /// <summary>
