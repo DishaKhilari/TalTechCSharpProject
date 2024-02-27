@@ -84,6 +84,12 @@ namespace TalTechWebUIAutomation.Support
                         ChromeOptions chromeOptions = new ChromeOptions();
                         chromeOptions.AddArgument("--window-size=1920,1080");
                         chromeOptions.AddArgument("--user-agent={}");
+                        chromeOptions.AddArgument("start-maximized"); // open Browser in maximized mode
+                        chromeOptions.AddArgument("disable-infobars"); // disabling infobars
+                        chromeOptions.AddArgument("--disable-extensions"); // disabling extensions
+                        chromeOptions.AddArgument("--disable-gpu"); // applicable to windows os only
+                        chromeOptions.AddArgument("--disable-dev-shm-usage"); // overcome limited resource problems
+                        chromeOptions.AddArgument("--no-sandbox");
 
 
                         // Get value for headless option from appsettings.json
