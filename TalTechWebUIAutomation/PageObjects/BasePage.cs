@@ -1,11 +1,12 @@
 ﻿using System;
-using OpenQA.Selenium;
+using OpenQA.Selenium; //SELENIUM
 
 namespace TalTechWebUIAutomation.PageObjects
 {
     public abstract class BasePage
     {
         protected readonly IWebDriver Driver;
+
 
         protected BasePage(IWebDriver driver)
         {
