@@ -4,24 +4,27 @@ on:
   push:
     branches:
       - master
+  pull_request:
+    branches:
+      - master
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    
+    runs-on: windows-latest
+
     steps:
-    - name: Checkout code
+    - name: Checkout Repository
       uses: actions/checkout@v2
-      
-    - name: Set up .NET SDK
+
+    - name: Setup .NET Environment
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '6.0.101'  # Specify the desired .NET SDK version
-        
-    - name: Restore dependencies
+        dotnet-version: '6.0.101'
+
+    - name: Restore Dependencies
       run: dotnet restore
-      
-    - name: Build project
+
+    - name: Build
       run: dotnet build --configuration Release
 
     - name: Replace Environmental Variables
@@ -29,9 +32,25 @@ jobs:
         dotnet run --project TalTechWebUIAutomation/TalTechWebUIAutomation.csproj
       env:
         JSON_FILE_PATH: "TalTechWebUIAutomation/appsettings.json"
-      
-    - name: Run tests
+        
+    - name: Test
       run: dotnet test --configuration Release --no-build
 
+    - name: Publish Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: TechCSharpProject
+        path: bin/Release/net6.0/publish
 
-      
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Download Artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: TechCSharpProject
+        path: artifacts
+
+    # Add deployment steps (e.g., SSH, Azure, AWS deployment)

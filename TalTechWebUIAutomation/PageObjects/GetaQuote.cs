@@ -1,4 +1,4 @@
-﻿using TalTechWebUIAutomation.PageObjects;
+using TalTechWebUIAutomation.PageObjects;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
