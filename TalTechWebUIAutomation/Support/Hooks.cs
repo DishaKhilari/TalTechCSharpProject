@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Reflection;
 using BoDi;
@@ -6,6 +6,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using TechTalk.SpecFlow;
 using System.Drawing.Imaging;
+using OpenQA.Selenium.Interactions;
 
 
 namespace TalTechWebUIAutomation.Support
@@ -77,11 +78,20 @@ namespace TalTechWebUIAutomation.Support
             var browser = TestConfiguration.GetSectionAndValue("BrowserOptions", "Browser");
             if (_driver == null)
             {
-                switch (browser)
+                switch (browser)//test
+
                 {
                     case "Chrome":
                         ChromeOptions chromeOptions = new ChromeOptions();
                         chromeOptions.AddArgument("--window-size=1920,1080");
+                        chromeOptions.AddArgument("--user-agent={}");
+                        chromeOptions.AddArgument("start-maximized"); // open Browser in maximized mode
+                        chromeOptions.AddArgument("disable-infobars"); // disabling infobars
+                        chromeOptions.AddArgument("--disable-extensions"); // disabling extensions
+                        chromeOptions.AddArgument("--disable-gpu"); // applicable to windows os only
+                        chromeOptions.AddArgument("--disable-dev-shm-usage"); // overcome limited resource problems
+                        chromeOptions.AddArgument("--no-sandbox");
+
 
                         // Get value for headless option from appsettings.json
 
